@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background origin</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background: url('/MFEE19CSS-main/images/nook_small.jpg') no-repeat;
+            float: left;
+            margin: 10px;
+            padding: 10px;
+            border: 10px antiquewhite dashed ;
+        }
+        .border-box{
+            background-origin: border-box;
+            background-position: 10px 0px;
+        }
+        .padding-box{
+            background-origin: padding-box;
+            background-position: 10px 0px;
+        }
+        .content-box{
+            background-origin: content-box;
+            background-position: 10px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box border-box"></div>
+    <div class="box padding-box"></div>
+    <div class="box content-box"></div>
+</body>
+</html>

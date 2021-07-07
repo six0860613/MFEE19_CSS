@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object fit</title>
+
+    <style>
+        .box{
+            float: left;
+            height: 500px;
+            width: 40%;
+            border: black 2px solid;
+        }
+        .box img{
+            width: 100%;
+            height: 100%;
+        }
+        .fill{
+            object-fit: fill;
+        }
+        .contain{
+            object-fit: contain;
+        }
+        .cover{
+            object-fit: cover;
+            object-position: 20px 200px;
+        }
+        .none{
+            object-fit: none;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="box">
+        <img class="fill" src="/MFEE19CSS-main/images/ex1_pic1.jpg" alt="">
+    </div>
+    <div class="box">
+        <img class="contain" src="/MFEE19CSS-main/images/ex1_pic1.jpg" alt="">
+    </div>
+    <div class="box">
+        <img class="cover" src="/MFEE19CSS-main/images/ex1_pic1.jpg" alt="">
+    </div>
+    <div class="box">
+        <img class="none" src="/MFEE19CSS-main/images/ex1_pic1.jpg" alt="">
+    </div>
+</body>
+</html>
