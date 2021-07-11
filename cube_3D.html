@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube</title>
+
+    <style>
+        .body{
+            height: 500px;
+        }
+        .camera{
+            width: 200px;
+            height: 200px;
+            perspective: 500px;
+            margin: 150px 250px;
+            perspective-origin: 50% 50%;
+        }
+        .cube{
+            transform-style: preserve-3d;
+            position: relative;
+            animation: cube-rotate 10s infinite linear;
+            top: 50%;
+            
+        }
+        .cube div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            text-align: center;
+            line-height: 200px;
+
+        }
+
+        .left{
+            background-color: rgb(245, 29, 29);
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .right{
+            background-color: rgb(224, 157, 70);
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .top{
+            background-color: rgb(241, 239, 109);
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .bottom{
+            background-color: rgb(28, 143, 44);
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+        .front{
+            background-color: rgba(162, 247, 255, 50%);
+            transform: translateZ(100px);
+        }
+        .back{
+            background-color: rgb(75, 5, 133);
+            transform: rotateY(180deg) translateZ(100px);
+        }
+
+        @keyframes cube-rotate{
+            from{
+                transform: rotateX(0);
+            }
+            to{
+                transform: rotateX(360deg);
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="camera">
+        <div class="cube">
+            <div class="left">left</div>
+            <div class="right">right</div>
+            <div class="top">top</div>
+            <div class="bottom">bottom</div>
+            <div class="front">front</div>
+            <div class="back">back</div>
+        </div>
+    </div>
+</body>
+</html>

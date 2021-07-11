@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .container{
+            width: 1200px;
+            margin: 40px auto;
+            padding: 0 15px;
+        }
+        .row{
+            display: flex;
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+        .navbar-left, .navbar-right, .logo{
+            width: 33.33%;
+        }
+        .logo{
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 20px;
+        }
+        .navbar-right{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .navbar-right>i{
+            margin: 5px;
+        }
+        .navbar-left>a{
+            text-decoration: none;
+            color: black;
+            padding-right: 5px;
+        }
+
+        .buy-link{
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            background-color: rgb(119, 115, 115);
+            padding: 20px;
+            display: flex;
+        }
+
+        .img-400{
+            width: 400px;
+            height: 400px;
+        }
+        .img-400 img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sub-title{
+            font-size: 1.2rem;
+            font-weight: bold;
+            width: 400px;
+            margin: 10px auto;
+        }
+
+        .produt-info{
+
+        }
+
+        /* 模組化 */
+        .align-center{
+            align-items: center;
+        }
+        .space-between{
+            justify-content: space-between;
+        }
+        .m-bottom-40{
+            margin-bottom: 40px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="container">
+        <!-- navbar -->
+        <div class="row align-center m-bottom-40">
+            <div class="navbar-left">
+                <a href="#">Shop</a>
+                <a href="#">Lookbook</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="logo">Alameda</div>
+            <div class="navbar-right">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+        </div>
+        <!-- title -->
+        <div class="row space-between m-bottom-40">
+            <h2>New In</h2>
+            <a href="#" class="buy-link align-center">Shop Now</a>
+        </div>
+        <!-- card -->
+        <div class="row space-between m-bottom-40">
+            <div class="item">
+                <div class="img-400">
+                    <img src="./images/P1.jpg" alt="">
+                </div>
+                <p>Linen Top / Blue</p>
+            </div>
+            <div class="item">
+                <div class="img-400">
+                    <img src="./images/P2.jpg" alt="">
+                </div>
+                <p>Linen Top / Blue</p>
+            </div>
+            <div class="item">
+                <div class="img-400">
+                    <img src="./images/P3.jpg" alt="">
+                </div>
+                <p>Linen Top / Blue</p>
+            </div>
+        </div>
+        <!-- center txt -->
+        <div class="row sub-title m-bottom-40">
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. </span>
+        </div>
+        <!-- product -->
+        <div class="row space-between">
+            <div class="produt-info img-400">
+                <img src="./images/P1.jpg" alt="">
+                <p>Linen / Blue</p>
+            </div>
+            <div class="produt-model">
+                <img src="./images/P3.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .demo{
+            width: 300px;
+            height: 300px;
+            margin:100px 200px;
+            border: 1px dashed rgb(212, 212, 212) ;
+        }
+        .title{
+            font-size: 20px;
+            font-weight: bold;
+            position: absolute;
+        }
+
+        .axis-x{
+            width: 300px;
+            height: 1px;
+            border-top: solid 2px black;
+            position: absolute;
+            transform: translate(0 , 150px);
+        }
+        .axis-x::before{
+            content: "-X";
+        }
+        .axis-x::after{
+            content: "+X";
+            float: right;
+        }
+
+        .axis-y{
+            width: 1px;
+            height: 300px;
+            border-left: solid 2px black;
+            position: absolute;
+            transform: translate(150px , 0px);
+        }
+        .axis-y::before{
+            content: "-Y";
+            position: absolute;
+            width: 20px;
+        }
+        .axis-y::after{
+            content: "+Y";
+            margin-top: 280px;
+            position: absolute;
+            width: 20px;
+        }
+
+        .axis-z{
+            width: 300px;
+            height: 1px;
+            border-top: dashed 2px black;
+            position: absolute;
+            transform: translate(0 , 150px) rotate(33deg);
+        }
+        .axis-z::before{
+            content: "-Z";
+        }
+        .axis-z::after{
+            content: "+Z";
+            float: right;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="demo">
+        <div class="title">Rotate Axis</div>
+        <div class="axis-x"></div>
+        <div class="axis-y"></div>
+        <div class="axis-z"></div>
+    </div>
+</body>
+</html>
