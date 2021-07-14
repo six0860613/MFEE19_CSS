@@ -1,38 +1,112 @@
 /* body */
-body{
+html, body{
     font-family: 'Noto Sans JP', 'Cabin', sans-serif;
+    scroll-behavior: smooth;
+    max-width: 1920px;
 }
 img{
     max-width: 100%;
 }
+
+.gotoTop {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	cursor: pointer;
+	position:fixed;
+	right: 2%;
+	bottom: 5%;
+    display: none;    
+    z-index: 10;
+    background-color: transparent;
+}
+
+
 /* ----- header ----- */
 
+.logo{
+    height: 100px;
+    min-height:100%;
+    margin-right: auto;
+    padding-left: 1rem;
+    order: -1;
+}
 .logo img{
-    width: 200px;
     height: 100%;
 }
-.logo{
-    padding-left: 1rem;
+
+/* ----- navbar ----- */
+.navbar{
+    width: 1920px;
+    max-width: 100%;
+    padding: 0.5rem;
 }
+.navbarMove{
+    background-color: rgba(240, 240, 240, 0.9) !important;
+}/* 滑動後變透明 */
 
 /* social icon & hover effect */
 .social-icon{
-    padding-right: 2rem;
-    margin-left: 2rem;
+    order: 1;
+    margin: 0 0.5%;
 }
-.social-icon img{
+.social-icon a{
+    margin: 0 5px;
+}
+.social-icon a img{
     width: 40px;
     height: 40px;
-    margin-left: 10px;
 }
 .social-icon a:hover{
     transition: .5s;
     opacity: 60%;
 }
+/* burger */
+.burger{
+    display: flex;
+    flex-direction: column;
+    order: 2;
+}
+.burgerBtn{
+    background: rgb(231, 27, 105);
+    width: 1.5rem;
+    height: 2px;
+    margin: 3px auto;
+    transition: 0.2s ease;
+}
+.burger:hover .burgerBtn:nth-child(1){
+    transform: rotate(-45deg);
+}
+.burger:hover .burgerBtn:nth-child(2){
+    transform: rotate(45deg);
+    margin-top: -0.3rem;
+}
+.burger:hover .burgerBtn:nth-child(3){
+    opacity: 0;
+}
+
+
+@media screen and (max-width:1200px) { 
+    .logo{
+        height: 50px;
+    }
+    .social-icon{
+        margin-right: 0.5rem;
+    }
+    .social-icon a img{
+        width: 30px;
+        height: 30px;
+    }
+}
+@media screen and (min-width:1200px){
+    .burger{
+        display: none;
+    }
+}
 
 /* nav-item */
 .nav-item{
-    margin-left: 1.2rem;
+    padding: 0 1%;
 }
 .nav-item span{
     display: block;
@@ -74,37 +148,131 @@ img{
 
 /* banner */
 .banner{
-    background-image: url('./images/banner_bg.jpg');
-    background-size: cover;
-    background-position: center center;
     width: 100%;
-    height: 840px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+.banner-bg{
     max-width: 1920px;
 }
-
-/* top */
-.top{
-    background-image: url('./images/top_bg.png');
-    width: 100%;
-    height: 350px;/*暫定高*/
+.banner-bg-m{
+    display: none;
 }
+.scroll{
+    width: 10%;
+    padding: 0;
+	margin: 0;
+	border: 0;
+	position:absolute;
+	left: 45%;
+	bottom: -1px;
+    z-index: 10;
+    background-color: transparent;
+    transition: 0.5s ease;
+}
+.scroll:hover{
+    opacity: 0.6;
+}
+@media screen and (max-width:767px){
+    .banner-bg-m{
+        display: inline-block;
+    }
+    .banner-bg{
+        display: none;
+    }
+    .scroll{
+        width: 18%;
+        left: 41%;
+    }
+}
+
+/* carousel */
 .carousel{
-    margin: 0 auto;
-    background-color: aquamarine;
-    width: 80%; /*暫定寬*/
-    height: 100%;
+    width: 100%;
+    background-image: url('./images/top_bg.png');
+    background-position: top center;
+    position: relative;
+    padding: 5% 10% 10% 10%;
+    border-radius: 0 0 50%  50%;
+}
+.swiper-container {
+    width: 100%;
+}
+.swiper-wrapper{
+    transition-timing-function: ease;
+}
+/* slide同時顯示個數的寬度改變 */
+.swiper-slide{
+    max-width: 50%;
+}
+.swiper-slide a img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.swiper-slide a img:hover{
+    opacity: 0.6;
+}
+.swiper-button-next{
+    background: url('./images/carousel-arrow.png') no-repeat;
+    background-position: right center;
+    color: transparent !important;
+    right: 3% !important;
+    top: 40% !important;
+}
+.swiper-button-prev{
+    background: url('./images/carousel-arrow.png') no-repeat;
+    background-position: right center;
+    transform: rotate(180deg);
+    color: transparent !important;
+    left: 3% !important;
+    top: 40% !important;
+}
+.swiper-pagination{
+    bottom: 25% !important;
+    left: 47% !important;
+}
+.swiper-pagination-bullet{
+    background: url('./images/pagination.png')no-repeat center center!important;
+    background-size: contain !important;
+    color: transparent !important;
+    margin: 0 5px;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 0 !important;
+}
+.swiper-pagination-bullet-active{
+    background: url('./images/pagination-active.png')no-repeat center center!important;
+    background-size: contain !important;
+    color: transparent !important;
+}
+@media screen and (max-width:767px){
+    .swiper-slide{
+        max-width: 100%;
+    }
+    .swiper-pagination{
+        bottom: 5% !important;
+        left: 34% !important;
+    }
+    .swiper-button-prev{
+        transform: rotate(180deg) scale(0.5);
+        top: 45% !important;
+    }
+    .swiper-button-next{
+        transform: scale(0.5);
+        top: 45% !important;
+    }
 }
 
-
-/* main */
+/* ----- main ----- */
 main{
     background: url('./images/page-bg.png')no-repeat bottom center;
     background-size: 100% auto;
 }
-.row{
-    margin-left: -15px;
-    margin-right: -15px;
-}
+
 /* main區塊的title部分 */
 .news-wrap{
     display: flex;
@@ -159,7 +327,17 @@ main{
 
 /* news-card部分 */
 .news-card{
+    position: relative;
     margin-bottom: 7%;
+    display: flex;
+    flex-direction: column;
+}
+.news-content{
+    height: 100%;
+    
+}
+.news-content:hover .news-detail{
+    color:rgb(231, 27, 105);
 }
 
 .new-star{
@@ -180,6 +358,31 @@ main{
     height: 250px;
     border: 2px solid rgb(180, 180, 180);
     position: relative;
+    overflow: hidden;
+}
+@media screen and (max-width: 767px){
+    .news-pic{
+        height: 150px;
+    }
+}
+.news-content:hover .view-hover{
+    transform: translateY(100%);
+}
+.view-hover{
+    position: absolute;
+    top: -100%;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(221, 19, 96, 0.6);
+    transition: 0.3s ease;
+}
+.view-hover img{
+    position: absolute;
+    top: 35%;
+    left: 42.5%;
+    width: 15%;
+    opacity: 0.6;
 }
 /* news-pic的圖片 */
 .news-pic-01{
@@ -216,14 +419,15 @@ main{
 }
 /* new-card的內容&文字 */
 .news-category{
-    margin: 20px 0;
+    margin: 5% 0;
     width: 30%;
 }
 .news-detail{
     font-size: 0.9rem;
+    color: rgb(15, 15, 15);
 }
 .news-date{
-    margin-top: 20%;
+    margin-top: 5%;
     text-align: end;
     font-family: 'Cabin', sans-serif;
     font-size: 0.9rem;
@@ -242,7 +446,7 @@ main{
 }
 .news-bot-EN{
     color: white;
-    width: 23%;
+    width: 23vmax;
     background-color: rgb(221, 13, 93);
     padding: 1% 0;
     font-family: "Cabin",sans-serif;
@@ -256,16 +460,21 @@ main{
 .schedule-month{
     font-size: 1.7rem;
     color: rgb(128, 128, 128);
-    margin-top: 5%;
-    margin-bottom: 3%;
+    margin: 5% 0 3% 0;
+}
+@media screen and (max-width:767px) {
+    .schedule-month{
+        justify-content: center;
+    }
 }
 .schedule{
     width: 100%;
     border: solid rgb(141, 141, 141);
     border-width: 0 0 1px 1px;
+    margin: 0;
 }
 .schedule-week{
-    width: 14.28%;
+    padding: 0;
     border-top: 1px solid rgb(141, 141, 141);
     border-right: 1px solid rgb(141, 141, 141);
 }
@@ -282,7 +491,18 @@ main{
     color: rgb(38, 103, 255);
 }
 .weekday-content{
-    height: 12rem;
+    min-height: 10rem;
+}
+@media screen and (max-width:767px) {
+    .schedule, .schedule-week, .weekday{
+        border: 0;
+    }
+    .weekday{
+        display: none;
+    }
+    .weekday-content{
+        min-height: 5rem;
+    }
 }
 .weekday-date{
     padding: 5px 0 5px 5px;
@@ -294,7 +514,7 @@ main{
     background-color: rgb(27, 139, 204);
     color: white;
     border-radius: 5px;
-    padding: 4px 2px 20px 2px;
+    padding: 4px 2px;
     margin-right: 3px;
     margin-bottom: 5px;
     transition: .3s;
@@ -304,7 +524,7 @@ main{
     background-color: rgb(233, 190, 0);
     color: white;
     border-radius: 5px;
-    padding: 4px 2px 20px 2px;
+    padding: 4px 2px;
     margin-right: 3px;
     margin-bottom: 5px;
     transition: .3s;
@@ -320,5 +540,194 @@ main{
     padding: 2% 0;
 }
 .ad-content{
-    padding: 15px 10px;
+    padding: 0;
+    margin: 15px 10px;
+}
+.ad-content a{
+    width: 100%;   
+    height: 100%;
+}
+.ad-content a::before{
+    content:"";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(221, 19, 96, 0.6);
+    display: none;
+}
+.ad-content a:hover::before{
+    display: block;
+}
+
+/* ----- footer ----- */
+.footer{
+    /* height: 600px; 暫定 */
+    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('./images/footer_bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.footer-title{
+    width: 100%;
+    color: white;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    text-indent: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+.footer-title img{
+    width: 20px;
+    height: 20px;
+    margin: 0 20px;
+}
+.footerTL{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}/* footer's twitter link */
+.footerTL-card{
+    background-color: rgba(255, 255, 255, 0.25);
+    margin: 0 1%;
+    display: flex;
+    align-items: center;
+    transition: 0.5s ease;
+}/* twitter link left&right card */
+.footerTL-card-pic{
+    width: 100px;
+    height: 100px;
+    display: flex;  
+    align-items: center;
+    opacity: 1;
+}
+.footerTL-card-detail{
+    width: 100%;
+    color: white;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    padding-left: 5%;
+}
+.footerTL-card:hover{
+    background-color: rgba(255, 255, 255);
+}
+.footerTL-card:hover .footerTL-card-detail{
+    color:rgb(231, 27, 105);
+}
+.footerTL-card:hover .footerTL-card-pic{
+    opacity: 0.75;
+}
+/* share icon part */
+.share{
+    display: flex;
+    align-items: center;
+    margin-bottom: 3%;
+}
+.share-text{
+    color: white;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    padding-right: 15px;
+}
+.share-icon{
+    height: 35px;
+}
+.share-icon img{
+    max-height: 100%;
+    padding: 0 10px;
+}
+/* footer-logo */
+.footer-logo{
+    position: relative;
+    width: 240px;
+    margin-bottom: 2%;
+}
+.footer-logo-pic-pink{
+    position: absolute;
+    opacity: 0;
+    transition: .3s ease;
+}
+.footer-logo-pic-white{
+    position: relative;
+    opacity: 0.6;
+    transition: .3s ease;
+}
+.footer-logo:hover .footer-logo-pic-pink{
+    opacity: 0.6;
+}
+.footer-logo:hover .footer-logo-pic-white{
+    opacity: 0;
+}
+/* bushiroad logo */
+.bushiroad{
+    justify-content: center;
+    width: 100%;
+}
+.bushiroad img{
+    width: 60px;
+}
+.bushiroad a{
+    padding: 0 10px;
+    transition: 0.3s ease;
+}
+.bushiroad-logo:hover{
+    opacity: 0.6;
+}
+/* language change */
+.language{
+    margin: 10px 0;
+}
+.language a{
+    color: white;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    padding: 0 15px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+.language a:hover{
+    color:rgb(231, 27, 105);
+}
+.language-border{
+    border-right: 1px white solid;
+}
+/* copyright */
+.copyright{
+    flex-direction: column;
+    align-items: center;
+}
+.copyright a{
+    color: white;
+    font-family: 'Cabin', sans-serif;
+    font-size: 0.9rem;
+    padding: 0 15px;
+    margin: 15px 0;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+.copyright a:hover{
+    color:rgb(231, 27, 105);
+}
+.copyright span{
+    color: white;
+    font-family: 'Cabin', sans-serif;
+    font-size: 0.8rem;
+    padding: 0 15px;
+    margin: 10px 0;
+    text-align: center;
 }

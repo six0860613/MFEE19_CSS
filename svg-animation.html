@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svg animaiton</title>
+
+    <style>
+
+        .circle {
+            stroke-dasharray: 1194;
+            /* 圓以多少長度為1分段 最大剛好為圓周長會完整圍起一個圓 */
+            stroke-dashoffset: 1194;
+            /* 反向的補周長 */
+        }
+
+        @keyframes rounding {
+            from {
+                stroke-dashoffset: 1194;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        svg:hover .circle {
+            animation: rounding 1s;
+            animation-fill-mode: forwards;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <svg width="400" height="400">
+
+            <circle cx="200" cy="200" r="190" fill="none" stroke="lightgreen" stroke-width="20" class="circle"
+                stroke-linecap="round" transform="rotate(-90 200 200)" />
+
+            <polyline fill="none" stroke="lightgreen" stroke-width="24" points="88,214 173,284 384,138"
+                stroke-linejoin="round" stroke-linecap="round" />
+
+        </svg>
+    </div>
+</body>
+
+</html>
